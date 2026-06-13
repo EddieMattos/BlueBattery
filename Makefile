@@ -359,21 +359,25 @@ actualizar_fuentes_live:
 
 actualizar-imagenes:
 	$(call log, "Creando spritesheets de imágenes de pilas")
-	TexturePacker recursos/imagenes.tps
-	TexturePacker recursos/bloques.tps
-	TexturePacker recursos/decoracion.tps
-	$(call log, "Actualizando grillas para poder previsualizar imágenes en el editor.")
-	@node scripts/actualizar-imagenes.js
-	$(call log, "Copiando animaciones de huesos")
-	@cp recursos/huesos/robot/robot.scon public
-	$(call log, "Creando spritesheets de imágenes")
-	TexturePacker recursos/iconos.tps
-	TexturePacker recursos/ejemplos.tps
-	TexturePacker recursos/iniciar-proyecto.tps
-	TexturePacker recursos/grilla-imagenes.tps
-	TexturePacker recursos/huesos/robot.tps
-	$(call log, "Corrigiendo nombres de clases en los css generados")
-	@node scripts/corregir-css-de-grilla-de-images.js
+	@echo "================================================================"
+	@echo "CUIDADO!!! TexturaPacker no se usará más... hay que cambiar esto"
+	@echo "================================================================"
+	python scripts/actualizar-imagenes.py
+	#TexturePacker recursos/imagenes.tps
+	#TexturePacker recursos/bloques.tps
+	#TexturePacker recursos/decoracion.tps
+	#$(call log, "Actualizando grillas para poder previsualizar imágenes en el editor.")
+	#@node scripts/actualizar-imagenes.js
+	#$(call log, "Copiando animaciones de huesos")
+	#@cp recursos/huesos/robot/robot.scon public
+	#$(call log, "Creando spritesheets de imágenes")
+	#TexturePacker recursos/iconos.tps
+	#TexturePacker recursos/ejemplos.tps
+	#TexturePacker recursos/iniciar-proyecto.tps
+	#TexturePacker recursos/grilla-imagenes.tps
+	#TexturePacker recursos/huesos/robot.tps
+	#$(call log, "Corrigiendo nombres de clases en los css generados")
+	#@node scripts/corregir-css-de-grilla-de-images.js
 
 
 subir-binarios:
