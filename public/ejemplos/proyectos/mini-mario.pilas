@@ -820,14 +820,14 @@
             },
             {
               "id": "laser-0.25653111521069416",
-              "rotacion": 0,
+              "rotacion": -20,
               "longitud": 40,
               "etiquetas": [],
               "nombre": "derecha"
             },
             {
               "id": "laser-0.878776209736167",
-              "rotacion": -180,
+              "rotacion": -160,
               "longitud": 40,
               "etiquetas": [],
               "nombre": "izquierda"
