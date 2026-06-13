@@ -61,7 +61,6 @@ comandos:
 	@echo "    ${G}api${N}                          Genera la documentación de API para pilas."
 	@echo "    ${G}pilas_manual${N}                 Genera el manual de pilas."
 	@echo "    ${G}pilas_manuales_descargables${N}  Genera los pdf, epub y mobi del manual."
-	@echo "    ${G}actualizar_phaser${N}            Actualiza phaser a una versión más reciente."
 	@echo "    ${G}actualizar_fuentes${N}           "
 	@echo "    ${G}actualizar_fuentes_live${N}      "
 	@echo ""
@@ -319,19 +318,6 @@ pilas_manuales_descargables:
 	@echo "${G}OK, los archivos generados están en el directorio manuales"
 	@echo ""
 
-actualizar_phaser:
-	@echo "${Y}Para actualizar phaser, hay que seguir estos pasos:${N}"
-	@echo "${Y}${N}"
-	@echo "${Y} - Subir el número de versión de package.json.${N}"
-	@echo "${Y} - Ejecutar el comando yarn${N}"
-	@echo "${Y} - Copiar phaser al directorio public:${N}"
-	@echo "${Y}${N}"
-	@echo "${Y}        cp node_modules/phaser/dist/phaser.js public/${N}"
-	@echo "${Y}${N}"
-	@echo "${Y} - Por último, ejecutar este script:${N}"
-	@echo "${Y}${N}"
-	@echo "${Y}        make corregir_phaser_js"
-	@echo "${Y}${N}"
 
 actualizar_typescript:
 	@echo "${Y}Para actualizar typescript, hay que seguir estos pasos:${N}"
@@ -345,9 +331,6 @@ actualizar_typescript:
 
 actualizar_definiciones:
 	@wget https://raw.githubusercontent.com/photonstorm/phaser/master/types/phaser.d.ts -O pilas-engine/declaraciones/phaser.d.ts
-
-corregir_phaser_js:
-	python3 scripts/patch.py
 
 actualizar_fuentes:
 	$(call log, "Actualizando spritesheets de fuentes")
