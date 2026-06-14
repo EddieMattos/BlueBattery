@@ -70,7 +70,6 @@ comandos:
 	@echo "    ${G}version_minor${N}                Genera una versión MINOR."
 	@echo "    ${G}version_major${N}                Genera una versión MAJOR."
 	@echo "    ${G}binarios${N}                     Genera los binarios de la aplicación."
-	@echo "    ${G}subir-binarios${N}               Genera los binarios de la aplicación."
 	@echo "    ${G}deploy${N}                       Sube una versión productiva al servidor."
 	@echo ""
 	@echo ""
@@ -108,7 +107,7 @@ prettier:
 
 deploy:
 	@echo "Compilando la aplicación en modo producción..."
-	ember build --prod --output-path docs
+	${BIN_EMBER} build --prod --output-path docs
 	echo "app.pilas-engine.com.ar" > docs/CNAME
 	git add docs
 	git commit -m "Realizando deploy"
@@ -191,7 +190,32 @@ binarios:
 	make compilar-binarios
 	make comprimir-binarios
 	make compilar-version-minima
-	@echo "Listo, recordá ejecutar make subir-binarios para publicar el release"
+	@echo "Listo, ya se crearon los binarios en el directorio ./binarios"
+	@echo ""
+	@echo "El siguiente paso es cear un release nuevo en:"
+	@echo ""
+	@echo "    https://github.com/pilas-engine/pilas-engine/releases/new"
+	@echo ""
+	@echo ""
+	@echo "Recordá que luego de hacer esto te conviene actualizar los"
+	@echo "links de descarga de la web de pilas. Para hacer eso ejecuta"
+	@echo "estos comandos:"
+	@echo ""
+	@echo "  cd ../sitio-web"
+	@echo "  make actualizar-descargas update deploy"
+	@echo ""
+
+
+
+binarios-windows:
+ifeq ($(COMPILAR_EN_WINDOWS), 1)
+	$(call log, "Compilando para windows - 32 bits ...")
+	cd dist; rm -rf build
+	cd dist; ../${BIN_ELECTRON_PACKAGER} . ${NOMBREBIN} --platform=win32 --arch=ia32 --electron-version=${VERSION_DE_ELECTRON_PARA_DISTRIBUIR} --out=../binarios ${FLAGS_ELECTRON_PACKAGER}
+	$(call log, "Compilando para windows - 64 bits ...")
+	cd dist; rm -rf build
+	cd dist; ../${BIN_ELECTRON_PACKAGER} . ${NOMBREBIN} --platform=win32 --arch=x64 --electron-version=${VERSION_DE_ELECTRON_PARA_DISTRIBUIR} --out=../binarios ${FLAGS_ELECTRON_PACKAGER}
+endif
 
 compilar-binarios:
 	$(call log, "Compilando aplicación ember ...")
@@ -205,18 +229,11 @@ endif
 	cp prod-electron.js dist/electron.js
 	cp prod-package.json dist/package.json
 	cd dist/; yarn install
+	make binarios-windows
 ifeq ($(COMPILAR_EN_OSX), 1)
 	$(call log, "Compilando para osx - 64 bits ...")
 	cd dist; rm -rf build
 	cd dist; ../${BIN_ELECTRON_PACKAGER} . ${NOMBREBIN} --platform=darwin --arch=x64 --electron-version=${VERSION_DE_ELECTRON_PARA_DISTRIBUIR} --out=../binarios ${FLAGS_ELECTRON_PACKAGER} --icon=../extras/icono.icn
-endif
-ifeq ($(COMPILAR_EN_WINDOWS), 1)
-	$(call log, "Compilando para windows - 32 bits ...")
-	cd dist; rm -rf build
-	cd dist; ../${BIN_ELECTRON_PACKAGER} . ${NOMBREBIN} --platform=win32 --arch=ia32 --electron-version=${VERSION_DE_ELECTRON_PARA_DISTRIBUIR} --out=../binarios ${FLAGS_ELECTRON_PACKAGER} --icon=../extras/icono.ico
-	$(call log, "Compilando para windows - 64 bits ...")
-	cd dist; rm -rf build
-	cd dist; ../${BIN_ELECTRON_PACKAGER} . ${NOMBREBIN} --platform=win32 --arch=x64 --electron-version=${VERSION_DE_ELECTRON_PARA_DISTRIBUIR} --out=../binarios ${FLAGS_ELECTRON_PACKAGER} --icon=../extras/icono.ico
 endif
 ifeq ($(COMPILAR_EN_LINUX), 1)
 	$(call log, "Compilando para linux - 64 bits ...")
@@ -362,17 +379,4 @@ actualizar-imagenes:
 	#$(call log, "Corrigiendo nombres de clases en los css generados")
 	#@node scripts/corregir-css-de-grilla-de-images.js
 
-
-subir-binarios:
-	ghr --replace ${VERSION} binarios/
-	$(call log, "Los binarios se subieron aquí:")
-	$(call log, "")
-	$(call log, "  - https://github.com/pilas-engine/pilas-engine/releases/latest")
-	$(call log, "")
-	$(call log, "Recordá que luego de hacer esto te conviene actualizar los")
-	$(call log, "links de descarga de la web de pilas. Para hacer eso ejecuta")
-	$(call log, "estos comandos:")
-	$(call log, "")
-	$(call log, "  cd ../sitio-web:")
-	$(call log, "  make actualizar-descargas update deploy")
 
