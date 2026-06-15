@@ -41,4 +41,9 @@
     <content_attribute id="social-info">mild</content_attribute>
   </content_rating>
   <update_contact>https://github.com/hugoruscitti</update_contact>
+  <keywords>
+    <keyword>game engine software</keyword>
+    <keyword>video game development tool</keyword>
+    <keyword>free game maker</keyword>
+  </keywords>
 </component>
