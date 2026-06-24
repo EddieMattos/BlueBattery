@@ -1,6 +1,6 @@
 VERSION=$(shell git describe --tags --abbrev=0)
-NOMBRE="pilas-engine"
-NOMBREBIN="pilas-engine"
+NOMBRE="BlueBattery Engine"
+NOMBREBIN="BlueBattery Engine"
 DATE=`date +'%y.%m.%d %H:%M:%S'`
 
 # Le indica a la compilación de binarios si puede borrar todos los .map

@@ -1,7 +1,7 @@
-# Pilas Engine 2
+# BlueBattery
 
-Pilas es un motor para aprender a programar realizando videojuegos, visitá la
-web para obtener más información:
+BlueBattery is a fork of Pilas Engine 2 an engine to lear programming  while develop games, visit
+the sute for more information (spanish):
 
 - http://www.pilas-engine.com.ar
 
@@ -47,7 +47,7 @@ Nota: usar node versión 12.18.2
 
 
 
-## Links útiles
+## Useful Links:
 
 - http://app.pilas-engine.com.ar - La versión más reciente de pilas.
 - http://pilas-engine.surge.sh - La versión más reciente de pilas (mirror).
@@ -56,22 +56,23 @@ Nota: usar node versión 12.18.2
 - http://foro.pilas-engine.com.ar - El foro donde debatimos ideas y anunciamos las versiones nuevas.
 - https://github.com/pilas-engine/pilas-engine/releases - Las versiones descargables de Pilas offline y los manuales.
 
-## Primeros pasos
+## First steps
 
 
-Tienes que tener instalada la versión 12.x de nodejs, o usar
-un gestor de versiones como nvm. Y luego usar comandos de
-make para iniciar el entorno y configurar todo lo demás.
+You have to have nodejs 12.x installed, or use
+a version manager like nvm. And then use commands
+make to start the environment and configure everything else.
 
-Te recomendamos tener en cuenta este video en donde
-explicamos cómo crear el entorno de pilas-engine y hacer algunas tareas
-básicas: https://www.youtube.com/watch?v=ASKYT7OoLos
 
-También vas a encontrar instrucciones para colaborar
-aquí: http://manual-pilas-engine.surge.sh/entorno.html
+We recommend you take into account this video where
+we explain how to create the pilas-engine environment and do some basic
+tasks: https://www.youtube.com/watch?v=ASKYT7OoLos
 
-Para comenzar a utilizar este repositorio deberías tener instalado git, 
-Make, nodejs (versión 6 o superior) y ejecutar estos comandos:
+You will also find instructions to collaborate
+here: http://manual-pilas-engine.surge.sh/entorno.html
+
+To start using this repository you should have installed git,
+Make, nodejs (version 6 o superior) and execute these prompts:
 
 ```
 git clone https://github.com/pilas-engine/pilas-engine.git
@@ -79,27 +80,26 @@ cd pilas-engine
 make iniciar
 ```
 
-El comando `make iniciar` va a instalar todas las dependencias que se
-necesitan para compilar y ejecutar el proyecto. Este proceso puede tardar
-unos minutos en completarse.
+The command `make iniciar` will install all the dependencies needed 
+to compile and execute the project. This process can take some minutes to finish.
 
-Una vez que termine, con el comando `make` van a aparecer en pantalla
-los comandos típicos a la hora de utilizar el proyecto.
 
-## Estilo de programación
+Once finished, with the command `make` the main commands of the project 
+will show in the screen.
 
-Si estás con ganas de participar del proyecto o enviar correcciones, ten
-en cuenta que el código enviado debería estar en español (siempre que sea
-posible) y que las variables o métodos con varias palabras tienen que estar
-separadas por guiones bajos (por ejemplo "cantidad_de_actores")
+## Programming style
 
-Además, es muy importante que tengas configurado tu editor para usar
-automáticamente Prettier (https://prettier.io/).
+ Prettier (https://prettier.io/).
 
-## Créditos
+## Use of genAI
+To maintain the original engine's spirit of learning to program by making games,
+we will not accept contributions originating from LLMs or any generative AI models.
+Please respect this rule.
 
-Este proyecto es posible gracias a la comunidad de pilas-engine, y a la
-existencia de varias herramientas y bibliotecas como:
+## Credit
+
+This project is possible thanks to the pilas-engine community and its creator Hugo Ruscitti, and
+the existence of tools and libraries like:
 
 - https://phaser.io/
 - https://github.com/jdotrjs/phaser3-nineslice/
@@ -112,11 +112,4 @@ existencia de varias herramientas y bibliotecas como:
 - https://github.com/nathancahill/split/tree/master/packages/splitjs
 - https://www.zondicons.com/
 - https://stuk.github.io/jszip/
-
-## Próximas tareas a desarrollar
-
-Las próximas tareas siempre se describen en el foro de pilas, y
-en los resúmenes de sprint. Te recomiendo ver el más reciente
-en la sección ["Artículos y noticias"](https://github.com/pilas-engine/pilas-engine#art%C3%ADculos-y-noticias)
-de este mismo archivo.
 
