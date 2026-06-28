@@ -48,6 +48,7 @@ comandos:
 	@echo "    ${G}ejecutar${N}                     Ejecuta la aplicación en modo desarrollo."
 	@echo "    ${G}test${N}                         Ejecuta los tests de la aplicación."
 	@echo "    ${G}prettier${N}                     Corrige el formato y la sintaxis de todos los archivos."
+	@echo "    ${G}trello${N}                       Abre el trello del proyecto"
 	@echo "    ${G}actualizar_typescript${N}        Actualiza typescript a una versión más reciente."
 	@echo "    ${G}actualizar_actores${N}           Actualiza el listado de actores implementados."
 	@echo "    ${G}actualizar_actores_live${N}      Actualiza el listado de actores en modo continuo."
@@ -73,6 +74,10 @@ comandos:
 	@echo "    ${G}deploy${N}                       Sube una versión productiva al servidor."
 	@echo ""
 	@echo ""
+
+
+trello:
+	open https://trello.com/b/eQJOjpOF/pilas-engine-2
 
 iniciar:
 	$(call task, "Iniciando el proyecto.")
