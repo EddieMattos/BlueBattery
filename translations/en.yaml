@@ -74,6 +74,7 @@ actor:
   text: Text
   font: Font
   background: Background
+  appearance: Appearance
   image: Image
   position: Position
   x: X
