@@ -11,6 +11,7 @@ module.exports = function(defaults) {
         "manual",
         "api",
         "imagenes",
+        "iconos",
         "fuentes",
         "sonidos",
         "monaco-vim",

@@ -17,7 +17,7 @@ export default Component.extend({
       {
         tipo: "separador",
         nombre: "Posición",
-        etiqueta: "actor.position"
+        etiqueta: "actor.appearance"
       },
     ]);
 

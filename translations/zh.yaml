@@ -75,6 +75,7 @@ actor:
   font: 字体
   background: 背景
   image: 图像
+  appearance: 外观
   position: 位置
   x: X
   y: Y
