@@ -46,6 +46,7 @@ comandos:
 	@echo "    ${G}compilar_live${N}                Compila la aplicación en modo continuo."
 	@echo "    ${G}electron${N}                     Ejecuta la aplicación en electron (sin compilar)."
 	@echo "    ${G}ejecutar${N}                     Ejecuta la aplicación en modo desarrollo."
+	@echo "    ${G}push${N}                         Ejecuta git push"
 	@echo "    ${G}test${N}                         Ejecuta los tests de la aplicación."
 	@echo "    ${G}prettier${N}                     Corrige el formato y la sintaxis de todos los archivos."
 	@echo "    ${G}trello${N}                       Abre el trello del proyecto"
@@ -91,6 +92,9 @@ compilar: actualizar_actores
 compilar_live: actualizar_actores
 	$(call log, "Iniciando compilación.")
 	${BIN_EMBER} build --environment develop --watch
+
+push:
+	git push origin master
 
 s: serve
 
